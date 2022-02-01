@@ -1,5 +1,6 @@
 package com.crm.vtiger.orgTest;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.crm.vtiger.objectRepo.CreateNewOrganizationPage;
@@ -13,7 +14,7 @@ import crm.crm.vtiger.genericLibrary.BaseClass;
 
 
 
-public class CreateOrg extends BaseClass
+public class CreateOrgTest extends BaseClass
 {
 	
 	@Test
@@ -40,14 +41,8 @@ public class CreateOrg extends BaseClass
 		OrganizationInfoPage oip = new OrganizationInfoPage(driver);
 		String actualHeaderTxt = oip.getHeadertxt().getText();
 		System.out.println(actualHeaderTxt);
-		if(actualHeaderTxt.contains(orgName))
-		{
-			System.out.println("=====TEST CASE PASSED=======");
-		}
-		else
-		{
-			System.err.println("=====TEST CASE FAILED====");
-		}
+		Assert.assertTrue(actualHeaderTxt.contains(orgName), "Org Name not contains Actual Header Text =======> FAIL");
+		System.out.println("Test Case ==============> PASSED");
 	}
 	
 

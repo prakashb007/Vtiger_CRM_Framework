@@ -47,6 +47,7 @@ public class BaseClass
 			System.err.println("Invalid Browser");
 		}
 		sdriver=driver;
+		wLib.maximizeWindow(driver);
 	}
 	
 	@BeforeMethod
